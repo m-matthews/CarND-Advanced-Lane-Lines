@@ -68,9 +68,9 @@ The output `objpoints` and `imgpoints` to compute the camera calibration and dis
 
 The distortion correction was applied to the test image using the `cv2.undistort()` function:
 
-| Chessboard Input |   | Chessboard Output |
-| ---------------- | - | ----------------- |
-| ![alt text][imagecal3] | &nbsp;&nbsp;&nbsp; | ![alt text][imagecal4] |
+| Chessboard Input | Chessboard Output |
+| ---------------- | ----------------- |
+| ![alt text][imagecal3] | ![alt text][imagecal4] |
 
 The final parameters are written to the file [01_Camera_Calibration.yaml](./01_Camera_Calibration.yaml) so that subsequent programs can use the same distortion corrections.
 
@@ -208,14 +208,10 @@ The [project video](./output_images/project_video_output.mp4) successfully ident
 
 ## Discussion
 
-    #### 1. Briefly discuss any problems / issues you faced in your implementation of this project.  Where will your pipeline likely fail?  What could you do to make it more robust?
-    Here I'll talk about the approach I took, what techniques I used, what worked and why, where the pipeline might fail and how I might improve it if I were going to pursue this project further.  
-
 The current pipeline does not successfully navigate the challenge tracks, however with additional work this could be achieved.
 
 Additional features to be implemented could include:
 
-1) Testing the current line is valid.  Currently the components are included to reset the line finding process, however these are not currently used.  Checking curvature, lines are parallel, line separation and line base (closest to vehicle) is within limits.
-
-2) Additional finetuning of the 
+1) Testing the current line is valid.  Currently the components are included to reset the line finding process, however these are not currently used.  Checking curvature, lines are parallel, line separation and position of the line base (closest to vehicle) would assist in verifying if the detected line is valid.
+2) Additional finetuning of the thresholding processes could also be performed.
 
