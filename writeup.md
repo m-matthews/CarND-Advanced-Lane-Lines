@@ -138,14 +138,14 @@ Both the Saturation (`s`) from the HLS color space, and Red (`r`) from the RGB c
 
 The `s` channel provides a better detection of the white and yellow lines generally, however I found that the use of the `r` channel assisted in some areas where the image included light and dark areas and the normalised `s` dropped the visibility of some of the line markings.
 
-The `_thresholds` method creates a combined binary image for both of the `s` and `r` channels as shown in the following example images:
+The `_thresholds()` method creates a combined binary image for both of the `s` and `r` channels as shown in the following example images:
 
 | Saturation (s) Channel | Red (r) Channel |
 | ---------------- | ----------------- |
 | ![alt text][imagethr1] | ![alt text][imagethr2] |
 | ![alt text][imagethr3] | ![alt text][imagethr4] |
 
-A combined binary image is then the output of the thresholding process.
+The two binary images are then combined into a new binary image which is the output of the thresholding process.
 
 
 #### Remove Distortion
@@ -153,8 +153,8 @@ A combined binary image is then the output of the thresholding process.
 The distortion was then applied to both the image and also the binary image to ensure the pixel locations are synchronised.  The camera calibration parameters are used from the [01_Camera_Calibration.yaml](./01_Camera_Calibration.yaml) file created in a previous step.
 
 
-| Road Image Input | Road Image Output |
-| ---------------- | ----------------- |
+| Road Image Input | Calibrated Road Image Output |
+| ---------------- | ---------------------------- |
 | ![alt text][imagecal5] | ![alt text][imagecal6] |
 
 The most noticable difference between the images is nearest the edges (for example the white vehicle) however this also straightens the road to enable easier detection and more accurate curve radius information.
@@ -230,7 +230,7 @@ The following list shows the identification of the lane lines based on the image
 |:-----------------------:|
 | ![alt text][imagetest1] |
 | ![alt text][imagetest2] |
-| * Note that the above image shows a failure to catch the line on the top left, however during the video sequencing the next frame or two would catch this and correct. |
+| * Note that the above image shows a failure to catch the line on the top left, however during the video sequencing the next frame or two would catch this and correct the line. |
 | ![alt text][imagetest3] |
 | ![alt text][imagetest4] |
 | ![alt text][imagetest5] |
