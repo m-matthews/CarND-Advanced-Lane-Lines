@@ -60,9 +60,9 @@ The program is unable to detect the chessboard corners in a number of images as 
 
 The detected chessboard corners are visible in the images saved to `/output_images/ccal*.jpg`.  Examples of chessboard detection follow:
 
-| Example 1 |   | Example 2 |
-| --------- | - | --------- |
-| ![alt text][imagecal1] | &nbsp;&nbsp;&nbsp; | ![alt text][imagecal2] |
+| Example 1 | Example 2 |
+| --------- | --------- |
+| ![alt text][imagecal1] | ![alt text][imagecal2] |
 
 The output `objpoints` and `imgpoints` to compute the camera calibration and distortion coefficients by using the `cv2.calibrateCamera()` function.
 
@@ -89,9 +89,9 @@ A number of iterations of the sizing were performed, which can be seen in the co
 
 The following images show the perspective transformation is performing correctly.
 
-| Perspective Transformation Input |   | Perspective Transformation Output |
-| -------------------------------- | - | --------------------------------- |
-| ![alt text][imageper1] | &nbsp;&nbsp;&nbsp; | ![alt text][imageper2] |
+| Perspective Transformation Input | Perspective Transformation Output |
+| -------------------------------- | --------------------------------- |
+| ![alt text][imageper1] | ![alt text][imageper2] |
 
 The final transformation matrix is written to the file [02_Perspective_Transform.yaml](./02_Perspective_Transform.yaml) so that subsequent programs can import the parameters without regenerating the transformation.
 
@@ -114,16 +114,13 @@ The program contains two classes:
 The output images (single frame or video) have the following appearance and features:
 
 1) The original image (after Camera Calibration) is used as a background image.  Note that the original undistorted image is not output.
-
 2) Details of the road curvature and vehicle offset are displayed in the top-left.
-
 3) The lane detection process is displayed in the top-right showing the detected pixels for each lane along with a yellow line showing the current polynomial fit to this data.
-
 4) The left and right lines are overlaid back onto the original image with the lane region marked in green.  A centre line is included to show the current estimated polynomial fitting the centre of the lane.
 
-| Initial Line Detection |   | Iterative Line Detection |
-| ---------------- | - | ----------------- |
-| ![alt text][imagevid1] | &nbsp;&nbsp;&nbsp; | ![alt text][imagevid2] |
+| Initial Line Detection | Iterative Line Detection |
+| ---------------- | ----------------- |
+| ![alt text][imagevid1] | ![alt text][imagevid2] |
 
 
 ### Process
@@ -143,10 +140,10 @@ The `s` channel provides a better detection of the white and yellow lines genera
 
 The `_thresholds` method creates a combined binary image for both of the `s` and `r` channels as shown in the following example images:
 
-| Saturation (s) Channel |   | Red (r) Channel |
-| ---------------- | - | ----------------- |
-| ![alt text][imagethr1] | &nbsp;&nbsp;&nbsp; | ![alt text][imagethr2] |
-| ![alt text][imagethr3] | &nbsp;&nbsp;&nbsp; | ![alt text][imagethr4] |
+| Saturation (s) Channel | Red (r) Channel |
+| ---------------- | ----------------- |
+| ![alt text][imagethr1] | ![alt text][imagethr2] |
+| ![alt text][imagethr3] | ![alt text][imagethr4] |
 
 A combined binary image is then the output of the thresholding process.
 
@@ -156,9 +153,9 @@ A combined binary image is then the output of the thresholding process.
 The distortion was then applied to both the image and also the binary image to ensure the pixel locations are synchronised.  The camera calibration parameters are used from the [01_Camera_Calibration.yaml](./01_Camera_Calibration.yaml) file created in a previous step.
 
 
-| Road Image Input |   | Road Image Output |
-| ---------------- | - | ----------------- |
-| ![alt text][imagecal5] | &nbsp;&nbsp;&nbsp; | ![alt text][imagecal6] |
+| Road Image Input | Road Image Output |
+| ---------------- | ----------------- |
+| ![alt text][imagecal5] | ![alt text][imagecal6] |
 
 The most noticable difference between the images is nearest the edges (for example the white vehicle) however this also straightens the road to enable easier detection and more accurate curve radius information.
 
@@ -169,9 +166,9 @@ The `_findlane()` method of the **Lane** class transforms the binary image into 
 
 If the line detection has not been performed before (either a single image or the first frame of a video) then the sliding window method of detection will be applied.  Otherwise the polynomial fit from the previous frame will be used as the windowing technique to find the relevant pixels.  The two examples below show the separate methods in their top-right display.
 
-| Sliding Window Detection |   | Previous Polynomial Detection |
-| ------------------------ | - | ----------------------------- |
-| ![alt text][imagevid1] | &nbsp;&nbsp;&nbsp; | ![alt text][imagevid2] |
+| Sliding Window Detection | Previous Polynomial Detection |
+| ------------------------ | ----------------------------- |
+| ![alt text][imagevid1] | ![alt text][imagevid2] |
 
 Note that the second image shows both detected pixels from this iteration along with previous iterations.  This can be seen clearly on the right lane where there are dark blue pixels representing this iteration, and then progressively lighter pixels representing previous frames.  This assists in preventing the line from 'wobbling' as previous data can be used to estimate where the current line should be positioned.  To prevent over-fitting on past results, each iteration is weighted (visible with the lighter colors used).  The current iteration is 1.0, with previous iterations at 0.8, 0.6, 0.4 and 0.2.
 
