@@ -212,3 +212,19 @@ Additional features to be implemented could include:
 1) Testing the current line is valid.  Currently the components are included to reset the line finding process, however these are not currently used.  Checking curvature, lines are parallel, line separation and position of the line base (closest to vehicle) would assist in verifying if the detected line is valid.
 2) Additional finetuning of the thresholding processes could also be performed.
 
+## Appendix - Test Images
+
+The following list shows the identification of the lane lines based on the images supplied in the `./test_images` folder:
+
+| Image                   |
+| ----------------------- |
+| ![alt text][imagetest1] |
+| ![alt text][imagetest2] |
+| ![alt text][imagetest3] |
+| ![alt text][imagetest4] |
+| ![alt text][imagetest5] |
+| ![alt text][imagetest6] |
+| ![alt text][imagetest7] |
+| ![alt text][imagetest8] |
+
+
