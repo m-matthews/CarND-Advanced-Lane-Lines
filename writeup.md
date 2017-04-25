@@ -212,14 +212,25 @@ Additional features to be implemented could include:
 1) Testing the current line is valid.  Currently the components are included to reset the line finding process, however these are not currently used.  Checking curvature, lines are parallel, line separation and position of the line base (closest to vehicle) would assist in verifying if the detected line is valid.
 2) Additional finetuning of the thresholding processes could also be performed.
 
-## Appendix - Test Images
+## Appendix 1: Contents of 'output_images'
+
+The `./output_images` folder contains the following:
+
+* `ccal_*`: Camera Calibration images.
+* `perspective_transform_*`: Perspective Transformation images.
+* `test_*`: Test images processed from `./test_images`.
+  * `test_project_video_*`: Images extracted from the `./project_video.mp4` for use in this `writeup.md`.
+* `threshold_*`: Debugging images showing the different channels and binary threshold images.
+
+## Appendix 2: Test Images
 
 The following list shows the identification of the lane lines based on the images supplied in the `./test_images` folder:
 
 | Image                   |
-| ----------------------- |
+|:-----------------------:|
 | ![alt text][imagetest1] |
 | ![alt text][imagetest2] |
+| * Note that the above image shows a failure to catch the line on the top left, however during the video sequencing the next frame or two would catch this and correct. |
 | ![alt text][imagetest3] |
 | ![alt text][imagetest4] |
 | ![alt text][imagetest5] |
