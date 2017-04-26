@@ -31,13 +31,11 @@ if __name__ == '__main__':
 
     # Final selecting is the original longer distance from first iteration,
     # however using the narrower projection from the second.
-    #TODO: This one works ...
-    src = np.float32([[238,686],[610,439],[669,439],[1068,686]])
-    dst = np.float32([[250,710],[250,0],[1030,0],[1030,710]])
+#    src = np.float32([[238,686],[610,439],[669,439],[1068,686]])
+#    dst = np.float32([[250,710],[250,0],[1030,0],[1030,710]])
 
     # New configuration is slightly longer in distance so that more line segments
     # can be seen in a single image.
-    #TODO: This one works except slight jump when hitting bump @ ~22s ...
     src = np.float32([[238,686],[581,458],[701,458],[1068,686]])
     dst = np.float32([[250,710],[250,0],[1030,0],[1030,710]])
 
