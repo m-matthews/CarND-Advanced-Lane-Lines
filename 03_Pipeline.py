@@ -507,7 +507,7 @@ class Lane:
 
         # Display curve radius on the output image.
         self._text(image, "Curve Radius: " +
-                          ("Straight" if curverad>6000 else "{:.0f}m.".format(curverad)), 0)
+                          ("Straight." if curverad>6000 else "{:.0f}m.".format(curverad)), 0)
         
         # Display vehicle left/right offset on the output image.
         veh_offset = (self.left_line.base_offset*self.xm_per_pix +
